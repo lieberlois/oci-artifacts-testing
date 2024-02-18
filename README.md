@@ -25,3 +25,20 @@ mkdir index && cd index
 oras manifest fetch localhost:5000/myindex:latest
 oras pull --plain-http localhost:5000/myindex:latest
 ```
+
+Note: Note: to setup an Ubuntu Machine with Docker and Oras, use the following commands:
+```bash
+apt update -y && apt install curl vim -y
+
+# Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Oras
+VERSION="1.1.0"
+curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_amd64.tar.gz"
+mkdir -p oras-install/
+tar -zxf oras_${VERSION}_*.tar.gz -C oras-install/
+sudo mv oras-install/oras /usr/local/bin/
+rm -rf oras_${VERSION}_*.tar.gz oras-install/
+```
